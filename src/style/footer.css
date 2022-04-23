@@ -1,0 +1,40 @@
+.footer{
+    width: 100%;
+    background: url(../images/background.jpg);
+    background-position: center;
+    margin-top: 30px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.footer > *{
+    margin-bottom: 10px;
+}
+.footer>p{
+    color: rgba(255, 255, 255, 0.377);
+    text-transform: uppercase;
+}
+.contactus{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 60px;
+    justify-content: space-between;
+}
+.contactus .icons{
+    display: flex;
+    }
+.contactus .icons>*{
+    margin: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: green;
+    width: 50px;
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    border-radius: 50%;
+}

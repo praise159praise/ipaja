@@ -1,0 +1,15 @@
+.nav{
+    display: flex;
+    padding: 8px;
+    border: 2px solid var(--ipaja-dark-green);
+    border-radius: 50px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.nav >div{
+    margin: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+}

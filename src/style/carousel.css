@@ -1,0 +1,24 @@
+.carItem{
+    position: relative;
+    height: 600px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.carItem .content{
+    position: relative;
+    width: 95%;
+    height: 90%;
+    background-color: green;
+    border-radius: 10px;
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.281);
+    overflow: hidden;
+}
+
+.carItem .content > img{
+    position: relative;
+    height: 100%;
+}
+.slider{
+    margin-bottom: 30px;
+}
