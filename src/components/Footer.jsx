@@ -4,7 +4,7 @@ import {FaFacebookF, FaInstagram, FaYoutube, FaYoutubeSquare} from 'react-icons/
 const Footer = () => {
     return (
         <div className='footer'>
-            <p>ipaja@2022</p>
+            <p>ipaja Deaneary @2022</p>
             <div className="contactus">
                 <p>Contact us</p>
                 <div className="icons">
