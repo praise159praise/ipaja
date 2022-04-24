@@ -1,4 +1,5 @@
 .nav{
+    transform: translateY(-55px);
     display: flex;
     padding: 8px;
     border: 2px solid var(--ipaja-dark-green);
@@ -6,10 +7,12 @@
     margin-top: 10px;
     margin-bottom: 30px;
 }
-.nav >div{
+.nav >a{
     margin: 5px;
     padding: 10px 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 12px;
+    text-decoration: none;
+    color: black;
 }

@@ -8,9 +8,9 @@ const Footer = () => {
             <div className="contactus">
                 <p>Contact us</p>
                 <div className="icons">
-                    <div><FaFacebookF/></div>
-                    <div><FaInstagram/></div>
-                    <div><FaYoutube/></div>
+                    <a href=""><div><FaFacebookF/></div></a>
+                    <a href="https://instagram.com/ipaja.ayd?igshid=YmMyMTA2M2Y="><div><FaInstagram/></div></a>
+                    <a href=""><div><FaYoutube/></div></a>
                 </div>
             </div>
             </div>

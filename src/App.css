@@ -14,10 +14,10 @@ body {
 
   font-family: Montserrat;
 
+  overflow-x: hidden;
 }
 
 .main {
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -40,7 +40,7 @@ body {
   align-items: center;
   padding-bottom: 10px;
 }
-.headerText::after{
+/* .headerText::after{
   content: '';
   position: absolute;
   top: 100%;
@@ -50,7 +50,7 @@ body {
   border-radius: 20px;
   transform: translateX(-50%);
   background-color: black;
-}
+} */
 
 .headerArea p {
   padding: 0;
@@ -74,6 +74,7 @@ body {
 @media only screen and (max-width: 600px) {
   .headerText {
     text-align: center;
+    margin: 20px;
   }
   .headerArea{
     margin: 0;
@@ -87,6 +88,7 @@ body {
   }
   .logo{
     height: 60px;
+    width: 40px;
   }
   .headerArea>img:nth-child(2){
     background-color: red;
@@ -102,16 +104,17 @@ body {
 
 .container {
   position: relative;
-  height: 98%;
+  height: 3000px;
   padding: 10px 0;
-  overflow-y: auto; 
-  overflow-x: hidden;
+  /* overflow-y: auto; 
+  overflow-x: hidden; */
   width: 95%;
   background: url(./images/background.jpg);
   background-position: center;
   border-radius: 10px;
   box-shadow: 0 0 40px var(--ipaja-green);
   display: flex;
+  flex: 4;
   flex-direction: column;
 }
 .timer{

@@ -1,6 +1,7 @@
 import './App.css';
 import logo from './images/logo-noBg.png'
 import youthlogo from './images/youthlogo.png'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // import 'slick-carousel/slick/slick.css'; 
 // import "slick-carousel/slick/slick-theme.css";
@@ -9,6 +10,9 @@ import Footer from './components/Footer';
 import Carousel from './components/Carousel';
 import FlipCountdown from '@rumess/react-flip-countdown';
 import Nav from './components/Nav';
+import Gallery from './components/Gallery';
+import Home from './pages/Home';
+import Aboutus from './pages/Aboutus';
 
 function App() {
   return (
@@ -21,32 +25,17 @@ function App() {
           <img src={youthlogo} height={100} className='logo'/>
 
         </div>
+      
+        <Router>
         <Nav/>
-        <div className='container' >
-          <Carousel/>
-          <div className='timer'>
-          <FlipCountdown
-                hideYear
-                hideMonth
-                dayTitle='Days'
-                hourTitle='Hours'
-                minuteTitle='Minutes'
-                secondTitle='Seconds'
-
-                size='medium'
-                titlePosition='bottom' // Options (Default: top): top, bottom.
-                endAt={'2022-04-25 01:26:58'} // Date/Time
-            />
-          </div>
-          <div className='buttons'>
-         
-            <div>Register Parish</div>
-            <div>Register Delegate</div>
-
-          </div>
-        </div>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/aboutus' element={<Aboutus/>}/>
+          </Routes>
+        </Router>
 
       </div>
+      <Gallery />
       <Footer />
     </>
   );

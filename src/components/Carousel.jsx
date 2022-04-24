@@ -20,13 +20,13 @@ const Carousel = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    centerMode:true,
     responsive: [
      
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-    variableWidth: false,
 
           slidesToScroll: 1,
           initialSlide: 1
