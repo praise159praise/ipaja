@@ -1,7 +1,6 @@
 .carItem{
     position: relative;
     height: 600px;
-    display: flex !important;
     justify-content: center;
     align-items: center;
 }
@@ -22,3 +21,14 @@
 .slider{
     margin-bottom: 30px;
 }
+@media only screen and (max-width: 600px) {
+    .slider{
+        overflow: hidden;
+        height: 300px;
+    }
+    .carItem{
+        height: 300px;
+
+    }
+  }
+  

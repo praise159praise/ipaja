@@ -1,6 +1,6 @@
 import React from 'react'
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import car1 from '../images/carousel1.jpg'
 import car2 from '../images/carousel2.jpg'
@@ -9,44 +9,61 @@ import car3 from '../images/carousel3.jpg'
 import '../style/carousel.css'
 
 const Carousel = () => {
-    const settings = {
-        className: "slider variable-width",
-        dots: true,
-        infinite: true,
-        speed: 500,
-        centerMode:true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        variableWidth: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        cssEase: "linear"
-      };
+  const settings = {
+    className: 'slider',
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear",
+    responsive: [
+     
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+    variableWidth: false,
+
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+
+  };
   return (
     <div>
-    
-    <Slider {...settings}>
-      <div className='carItem'>
-        <div className="content">
+
+      <Slider {...settings}>
+        <div className='carItem'>
+          <div className="content">
             <img src={car1} alt="" />
-            praise
+          </div>
         </div>
-      </div>
-      <div className='carItem'>
-        <div className="content">
+        <div className='carItem'>
+          <div className="content">
             <img src={car2} alt="" />
-            bamiyo
+          </div>
         </div>
-      </div>
-      <div className='carItem'>
-        <div className="content">
+        <div className='carItem'>
+          <div className="content">
             <img src={car3} alt="" />
-            bamiyo
+          </div>
         </div>
-      </div>
-     
-    </Slider>
-  </div>
+
+      </Slider>
+    </div>
   )
 }
 

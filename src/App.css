@@ -62,7 +62,6 @@ body {
   filter: drop-shadow(10px 10px 5px rgba(0, 0, 0, 0.377));
 
 }
-
 .headerArea p:nth-child(1) {
   font-size: 24px;
   font-weight: 600;
@@ -71,6 +70,34 @@ body {
 .headerArea p:nth-child(2) {
   letter-spacing: 4px;
 }
+
+@media only screen and (max-width: 600px) {
+  .headerText {
+    text-align: center;
+  }
+  .headerArea{
+    margin: 0;
+    padding: 15px;
+    font-size: 10px;
+    
+  }
+  .headerArea p:nth-child(1) {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .logo{
+    height: 60px;
+  }
+  .headerArea>img:nth-child(2){
+    background-color: red;
+  }
+  .logo:nth-child(2){
+    background-color: red;
+    height: 70px;
+  }
+}
+
+
 
 
 .container {
