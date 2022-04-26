@@ -113,10 +113,10 @@ body {
   /* overflow-y: auto; 
   overflow-x: hidden; */
   width: 95%;
-  background: url(./images/background.jpg);
+  background: url(./images/bg_grayscale.jpg);
   background-position: center;
   border-radius: 10px;
-  box-shadow: 0 0 40px var(--ipaja-green);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.288);
   display: flex;
   flex: 4;
   flex-direction: column;
@@ -140,6 +140,8 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.247);
   cursor: pointer;
   transition: .5s;
+  text-decoration: none;
+
   
 }
 .buttons>*:hover{
