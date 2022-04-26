@@ -1,6 +1,8 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
 import FlipCountdown from '@rumess/react-flip-countdown'
+import { Link } from 'react-router-dom'
+
 const Home = () => {
     return (
         <div className='container' >
@@ -21,8 +23,8 @@ const Home = () => {
             </div>
             <div className='buttons'>
 
-                <div>Register Parish</div>
-                <div>Register Delegate</div>
+                <Link to='/registerparish'><div>Register Parish</div></Link>
+                <Link to='/registerdelegate'><div>Register Delegate</div></Link>
 
             </div>
         </div>

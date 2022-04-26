@@ -1,0 +1,59 @@
+.rparish, .rdelegate{
+    background-color: red;
+    background: url(../images/background.jpg);
+    width: 100vw;
+    background-position: center;
+    padding: 30px;
+}
+.rparish .header, .rdelegate .header{
+    color: white;
+    margin-top: 0;
+}
+form{
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.425);
+    justify-content: center;
+}
+form>div{
+        width: 50%;
+        padding: 20px 80px;
+}
+form>div>input, form>div>select{
+    background-color: white;
+    border: 1px solid var(--ipaja-green);
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+}
+form>div>p{
+    margin-bottom: 8px;
+}
+form>button{
+    align-self: center;
+    justify-self: center;
+    background-color: var(--ipaja-green);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.322);
+    transition: .5s;
+}
+form>button:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.192);
+
+}
+@media only screen and (max-width: 600px) {
+    form>div{
+        width: 100%;
+        padding: 20px ;
+}
+  }
+  

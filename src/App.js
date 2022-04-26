@@ -13,6 +13,8 @@ import Nav from './components/Nav';
 import Gallery from './components/Gallery';
 import Home from './pages/Home';
 import Aboutus from './pages/Aboutus';
+import RParish from './pages/RParish';
+import Rdelegate from './pages/Rdelegate';
 
 function App() {
   return (
@@ -31,6 +33,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/aboutus' element={<Aboutus/>}/>
+            <Route path='/registerparish' element={<RParish/>}/>
+            <Route path='/registerdelegate' element={<Rdelegate/>}/>
+
           </Routes>
         </Router>
 

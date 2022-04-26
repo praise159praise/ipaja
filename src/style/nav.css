@@ -1,5 +1,4 @@
 .nav{
-    transform: translateY(-55px);
     display: flex;
     padding: 8px;
     border: 2px solid var(--ipaja-dark-green);
