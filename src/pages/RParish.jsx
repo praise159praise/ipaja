@@ -135,7 +135,7 @@ const RParish = () => {
                 </div>
                 <div className="contactemail">
                     <p>Contact Email</p>
-                    <input type="text" name="contactemail" id="contactemail" required onChange={(event) => setEmail(event.target.value)} />
+                    <input type="email" name="contactemail" id="contactemail" required onChange={(event) => setEmail(event.target.value)} />
                 </div>
                 
                 <div className="contactphone">
