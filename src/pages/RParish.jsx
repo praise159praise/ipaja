@@ -53,6 +53,7 @@ const RParish = () => {
     }
     const makePayment = (e) => {
         e.preventDefault()
+        setPaymentInitiated(true)
         console.log('yesboss')
         const body = {
             email: email,
@@ -82,7 +83,7 @@ const RParish = () => {
                 setPayment(json.data.data.authorization_Url)
 
             })
-            .then(()=>setPaymentInitiated(true))
+            
 
     }
     const getPaymentStatus = () =>{

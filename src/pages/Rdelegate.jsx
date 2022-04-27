@@ -55,7 +55,7 @@ const Rdelegate = () => {
     }
     const makePayment = (e) => {
         e.preventDefault()
-        var payment
+        setPaymentInitiated(true)
         console.log('yesboss')
         const body = {
             email: email,
@@ -85,7 +85,7 @@ const Rdelegate = () => {
                 payment = window.open(json.data.data.authorization_Url)
 
             })
-            .then(()=>setPaymentInitiated(true))
+            
 
         if(payment){
             payment.onClose = ()=>{
