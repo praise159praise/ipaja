@@ -41,7 +41,7 @@ const Rdelegate = () => {
         setStatus(false)
         setPaymentInitiated(false)
         setAccess(0)
-        fetch(`/points/Parishes/GetParishes?deaneryId=${dean}`,
+        fetch(`/points/Parishes/GetPaidParishes?deaneryId=${dean}`,
             {   
                 method:'POST',
                 headers: {
