@@ -105,7 +105,7 @@ const Rdelegate = () => {
     }
   return (
     <div className='rdelegate'>
-    <div className="header">AYD Parish Registration</div>
+    <div className="header">AYD Delegate Registration</div>
     <form method="POST" action="" onSubmit={makePayment}>
     {!!status  &&   
                 <p className='status'> {status == 'success' ? 'payment complete' : 'processing payment'}</p>
