@@ -12,6 +12,7 @@ const RParish = () => {
     const [access, setAccess] = useState('')
     const [status, setStatus] = useState(null)
     const [paymentInitiated, setPaymentInitiated] = useState()
+    const [payment, setPayment] = useState('')
     useEffect(() => {
         getDeans()
         getPaymentStatus()
@@ -52,7 +53,6 @@ const RParish = () => {
     }
     const makePayment = (e) => {
         e.preventDefault()
-        var payment
         console.log('yesboss')
         const body = {
             email: email,
@@ -79,25 +79,18 @@ const RParish = () => {
                 console.log(json.data.data.reference)
                 setAccess(json.data.data.reference)
                 console.log(json)
-                payment = window.open(json.data.data.authorization_Url)
+                setPayment(json.data.data.authorization_Url)
 
             })
             .then(()=>setPaymentInitiated(true))
 
-        if(payment){
-            payment.onClose = ()=>{
-                console.log('closed')
-            }
-        }
-
     }
     const getPaymentStatus = () =>{
         if(paymentInitiated){
-            console.log('waiting for status')
             fetch(`/points/api/payment/paystackVerifyTransaction?trxref=${access}&reference=${access}`)
                 .then((res)=>res.json())
                 .then((json)=> setStatus(json.status))
-                .then(()=>console.log(status))
+                
         }
     }
     return (
@@ -109,6 +102,13 @@ const RParish = () => {
 
                     
                     
+                }
+                {
+                    paymentInitiated && !status &&
+
+                   <div className="paymentportal">
+                        <iframe src={payment} frameborder="0"></iframe>
+                   </div>
                 }
                 <div className="deaneary">
                     <p>Deanery</p>

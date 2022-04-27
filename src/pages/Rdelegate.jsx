@@ -10,7 +10,7 @@ const Rdelegate = () => {
     const [fname, setFName] = useState('')
     const [mname, setMName] = useState('')
     const [lname, setLName] = useState('')
-
+    const [payment, setPayment] = useState('')
     const [phone, setPhone] = useState('')
     const [access, setAccess] = useState('')
     const [status, setStatus] = useState(null)
@@ -112,6 +112,13 @@ const Rdelegate = () => {
 
                     
                     
+                }
+                 {
+                    paymentInitiated && !status &&
+
+                   <div className="paymentportal">
+                        <iframe src={payment} frameborder="0"></iframe>
+                   </div>
                 }
     <div className="firstname">
             <p>First Name</p>
