@@ -23,7 +23,7 @@ const Rdelegate = () => {
     const getDeans = async () => {
 
 
-        fetch('http://codeninja-001-site5.itempurl.com/Deaneries/GetDeaneries',
+        fetch('/points/Deaneries/GetDeaneries',
             {
                 method:'POST',
                 headers: {
@@ -41,7 +41,7 @@ const Rdelegate = () => {
         setStatus(false)
         setPaymentInitiated(false)
         setAccess(0)
-        fetch(`http://codeninja-001-site5.itempurl.com/Parishes/GetParishes?deaneryId=${dean}`,
+        fetch(`/points/Parishes/GetParishes?deaneryId=${dean}`,
             {   
                 method:'POST',
                 headers: {
@@ -67,7 +67,7 @@ const Rdelegate = () => {
 
         }
         console.log(body)
-        fetch(`http://codeninja-001-site5.itempurl.com/api/Payment/InitiateDelegateTransaction`,
+        fetch(`/points/api/Payment/InitiateDelegateTransaction`,
             {
                 method:'POST',
                 headers: {
@@ -97,7 +97,7 @@ const Rdelegate = () => {
     const getPaymentStatus = () =>{
         if(paymentInitiated){
             console.log('waiting for status')
-            fetch(`http://codeninja-001-site5.itempurl.com/api/payment/paystackVerifyTransaction?trxref=${access}&reference=${access}`)
+            fetch(`/points/api/payment/paystackVerifyTransaction?trxref=${access}&reference=${access}`)
                 .then((res)=>res.json())
                 .then((json)=> setStatus(json.status))
                 .then(()=>console.log(status))
