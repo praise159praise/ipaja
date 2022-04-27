@@ -1,47 +1,159 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../style/register.css'
 
 const Rdelegate = () => {
+    const [parishes, setParishes] = useState([])
+    const [parish, setParish] = useState(0)
+    const [dean, setDean] = useState(0)
+    const [deans, setDeans] = useState([])
+    const [email, setEmail] = useState('')
+    const [fname, setFName] = useState('')
+    const [mname, setMName] = useState('')
+    const [lname, setLName] = useState('')
+
+    const [phone, setPhone] = useState('')
+    const [access, setAccess] = useState('')
+    const [status, setStatus] = useState(null)
+    const [paymentInitiated, setPaymentInitiated] = useState()
+    useEffect(() => {
+        getDeans()
+        getPaymentStatus()
+    })
+
+    const getDeans = async () => {
+
+
+        fetch('http://codeninja-001-site5.itempurl.com/Deaneries/GetDeaneries',
+            {
+                method:'POST',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Host': 'codeninja-001-site5.itempurl.com',
+                    'User-Agent': 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0'
+                }
+            })
+            .then((res) => res.json())
+            .then((json) => setDeans(json))
+
+
+    }
+    const getParishes = async (dean) => {
+        setStatus(false)
+        setPaymentInitiated(false)
+        setAccess(0)
+        fetch(`http://codeninja-001-site5.itempurl.com/Parishes/GetParishes?deaneryId=${dean}`,
+            {   
+                method:'POST',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Host': 'codeninja-001-site5.itempurl.com',
+                    'User-Agent': 'Mozilla/5.0 (X11; Fedora; Linux x86_64; rv:99.0) Gecko/20100101 Firefox/99.0'
+                }
+            })
+            .then((res) => res.json())
+            .then((json) => setParishes(json))
+    }
+    const makePayment = (e) => {
+        e.preventDefault()
+        var payment
+        console.log('yesboss')
+        const body = {
+            email: email,
+            ParishId: parish,
+            DeaneryId: dean,
+            isParish: true,
+            CustomerName: `${fname} ${mname} ${lname}`,
+            CustomerPhone: phone
+
+        }
+        console.log(body)
+        fetch(`http://codeninja-001-site5.itempurl.com/api/Payment/InitiateDelegateTransaction`,
+            {
+                method:'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify(body)
+                
+            })
+            .then((res) => res.json())
+            .then((json) => {
+                console.log(json.data.data.reference)
+                setAccess(json.data.data.reference)
+                console.log(json)
+                payment = window.open(json.data.data.authorization_Url)
+
+            })
+            .then(()=>setPaymentInitiated(true))
+
+        if(payment){
+            payment.onClose = ()=>{
+                console.log('closed')
+            }
+        }
+
+    }
+    const getPaymentStatus = () =>{
+        if(paymentInitiated){
+            console.log('waiting for status')
+            fetch(`http://codeninja-001-site5.itempurl.com/api/payment/paystackVerifyTransaction?trxref=${access}&reference=${access}`)
+                .then((res)=>res.json())
+                .then((json)=> setStatus(json.status))
+                .then(()=>console.log(status))
+        }
+    }
   return (
     <div className='rdelegate'>
     <div className="header">AYD Parish Registration</div>
-    <form action="">
+    <form method="POST" action="" onSubmit={makePayment}>
+    {!!status  &&   
+                <p className='status'> {status == 'success' ? 'payment complete' : 'processing payment'}</p>
+
+                    
+                    
+                }
     <div className="firstname">
             <p>First Name</p>
-            <input type="text" name="firstname" id="firstname" required/>
+            <input type="text" name="firstname" id="firstname" required onChange={(event) => setFName(event.target.value)} />
         </div>
         <div className="lastname">
             <p>Last Name</p>
-            <input type="text" name="lastname" id="lastname" required/>
+            <input type="text" name="lastname" id="lastname" required onChange={(event) => setLName(event.target.value)} />
         </div>
         <div className="middlename">
             <p>Middle Name</p>
-            <input type="text" name="middlename" id="middlename" required/>
+            <input type="text" name="middlename" id="middlename" required onChange={(event) => setMName(event.target.value)} />
         </div>
         <div className="email">
             <p>Email</p>
-            <input type="email" name="email" id="email" required/>
+            <input type="email" name="email" id="email" required onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div className="phone">
             <p>Phone</p>
-            <input type="phone" name="phone" id="phone" required/>
+            <input type="phone" name="phone" id="phone" required onChange={(event) => setPhone(event.target.value)} />
         </div>
         <div className="deaneary">
             <p>Deaneary</p>
-            <select name="deaneary" id="deaneary" placeholder='deneary' required>
-                <option value="deaneary01">Deaneary 01</option>
+            <select name="deaneary" id="deaneary" placeholder='deneary' required onChange={(event) => {
+                        getParishes(event.target.value)
+                        setDean(event.target.value)
+                    }}>
+                <option>Select Deanery ...</option>
+                {deans && deans.map((dean, key) => <option key={key} value={dean.id}>{dean.deaneryName}</option>)}
             </select>
         </div>
         <div className="Parish">
             <p>Parish</p>
-            <select name="parish" id="parish" placeholder='parish' required>
-                <option value="parish01">Parish 01</option>
+            <select name="parish" id="parish" placeholder='parish' required onChange={(event) => setParish(event.target.value)}>
+                <option >Select parish ...</option>
+                {parishes && parishes.map((parish, key) => <option key={key} value={parish.id}>{parish.parishName}</option>)}
             </select>
         </div>
         
         <div className="parishlevy">
             <p>Parish Levy</p>
-            <input type="text" name="parishlevy" id="parishlevy" required/>
+            <input type="text" name="parishlevy" id="parishlevy" required readOnly value={1000}/>
         </div>
         <button type="submit">Make Payment</button>
     </form>
