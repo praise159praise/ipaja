@@ -20,7 +20,7 @@ const RParish = () => {
     const getDeans = async () => {
 
 
-        fetch('//codeninja-001-site5.itempurl.com/Deaneries/GetDeaneries',
+        fetch('http://codeninja-001-site5.itempurl.com/Deaneries/GetDeaneries',
             {
                 method:'POST',
                 headers: {
@@ -38,7 +38,7 @@ const RParish = () => {
         setStatus(false)
         setPaymentInitiated(false)
         setAccess(0)
-        fetch(`//codeninja-001-site5.itempurl.com/Parishes/GetParishes?deaneryId=${dean}`,
+        fetch(`http://codeninja-001-site5.itempurl.com/Parishes/GetParishes?deaneryId=${dean}`,
             {   
                 method:'POST',
                 headers: {
