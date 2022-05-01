@@ -18,7 +18,7 @@ const Rdelegate = () => {
     useEffect(() => {
         getDeans()
         getPaymentStatus()
-    })
+    }, [status])
 
     const getDeans = async () => {
 
@@ -96,11 +96,12 @@ const Rdelegate = () => {
     }
     const getPaymentStatus = () =>{
         if(paymentInitiated){
-            console.log('waiting for status')
             fetch(`/points/api/payment/paystackVerifyTransaction?trxref=${access}&reference=${access}`)
                 .then((res)=>res.json())
                 .then((json)=> setStatus(json.status))
-                .then(()=>console.log(status))
+        }
+        if(status){
+            window.location.reload()
         }
     }
   return (

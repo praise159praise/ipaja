@@ -101,4 +101,5 @@ form>button:hover{
   }
   .paymentportal > iframe{
     height: 700px;
+    width: 500px;
   }

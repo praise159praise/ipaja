@@ -10,15 +10,15 @@ const Home = () => {
             <div className='timer'>
                 <FlipCountdown
                     hideYear
-                    hideMonth
                     dayTitle='Days'
                     hourTitle='Hours'
                     minuteTitle='Minutes'
                     secondTitle='Seconds'
+                    monthTitle='Months'
 
                     size='small'
                     titlePosition='bottom' // Options (Default: top): top, bottom.
-                    endAt={'2022-07-19 01:26:58'} // Date/Time
+                    endAt={'07/19/2022 01:26:58'} // Date/Time
                 />
             </div>
             <div className='buttons'>

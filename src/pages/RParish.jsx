@@ -16,7 +16,7 @@ const RParish = () => {
     useEffect(() => {
         getDeans()
         getPaymentStatus()
-    })
+    }, [status])
 
     const getDeans = async () => {
 
@@ -92,6 +92,9 @@ const RParish = () => {
                 .then((res)=>res.json())
                 .then((json)=> setStatus(json.status))
                 
+        }
+        if(status){
+            window.location.reload()
         }
     }
     return (
