@@ -82,16 +82,13 @@ const Rdelegate = () => {
                 console.log(json.data.data.reference)
                 setAccess(json.data.data.reference)
                 console.log(json)
-                payment = window.open(json.data.data.authorization_Url)
+                setPayment(json.data.data.authorization_Url)
+
 
             })
             
 
-        if(payment){
-            payment.onClose = ()=>{
-                console.log('closed')
-            }
-        }
+      
 
     }
     const getPaymentStatus = () =>{
