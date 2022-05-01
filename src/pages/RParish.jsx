@@ -16,7 +16,7 @@ const RParish = () => {
     useEffect(() => {
         getDeans()
         getPaymentStatus()
-    }, [status])
+    })
 
     const getDeans = async () => {
 
