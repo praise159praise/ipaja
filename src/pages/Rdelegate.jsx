@@ -18,7 +18,7 @@ const Rdelegate = () => {
     useEffect(() => {
         getDeans()
         getPaymentStatus()
-    ))
+    })
 
     const getDeans = async () => {
 
